@@ -32,7 +32,7 @@ function linkedListGenerator() {
     }
   }
 
-  function remove(number){
+  function remove(number) {
     //alternate version
     //previouse node = get(number - 1)
     //next node = get(number + 1)
@@ -42,27 +42,27 @@ function linkedListGenerator() {
     let prev;
     let i = 0;
 
-      while(temp !== null){
-        if(number === 0 && temp.next){
-          head = temp.next;
-          return head;
-        }else if(number === 0){
-          head = null;
-          //return head;
-        }else if(i === number && temp.next === null){
-          prev.next = null;
-          tail = prev;
-          //return prev;
-        }else if(i === number){
-          prev.next = temp.next;
-          //return prev;
-        }
-        i++
-        prev = temp;
-        temp = temp.next;
+    while (temp !== null) {
+      if (number === 0 && temp.next) {
+        head = temp.next;
+        return head;
+      } else if (number === 0) {
+        head = null;
+        //return head;
+      } else if (i === number && temp.next === null) {
+        prev.next = null;
+        tail = prev;
+        //return prev;
+      } else if (i === number) {
+        prev.next = temp.next;
+        //return prev;
+      }
+      i++
+      prev = temp;
+      temp = temp.next;
     }
     return false;
-}
+  }
 
   // Find the node you are searching for and keep track of previous node
   // When found, update previous node's next to point to the next node referenced by node to be deleted
@@ -72,8 +72,8 @@ function linkedListGenerator() {
     let current = head;
     let n = 0;
     let prev;
-    while(current != null){
-      if(n === number){
+    while (current != null) {
+      if (n === number) {
         return current;
       }
       n++;
@@ -82,24 +82,25 @@ function linkedListGenerator() {
     return false;
   }
 
-  function insert(val,number) {
+  function insert(val, number) {
     let temp = head;
     let prev = get(number - 1);
     let index = get(number);
 
     let obj = {
-      value: val, 
-      next: null};
+      value: val,
+      next: null
+    };
 
-      if(number === 0){
-        obj.next = head;
-        head = obj;
-      }else if(index < 0 || get(number) === false){
-        return false;
-      }else{
-        obj.next = get(number);
-        prev.next = obj;
-      }
+    if (number === 0) {
+      obj.next = head;
+      head = obj;
+    } else if (index < 0 || get(number) === false) {
+      return false;
+    } else {
+      obj.next = get(number);
+      prev.next = obj;
+    }
   }
 
   // Find the position/node in your linked list where you want to insert your new node after
