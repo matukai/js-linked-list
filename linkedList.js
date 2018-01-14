@@ -98,7 +98,7 @@ function linkedListGenerator() {
     } else if (index < 0 || get(number) === false) {
       return false;
     } else {
-      obj.next = get(number);
+      obj.next = index;
       prev.next = obj;
     }
   }
